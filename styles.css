@@ -55,14 +55,64 @@ nav {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    background: #000;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
+    text-align: center;
     position: relative;
     overflow: hidden;
+    padding: 2rem;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.floating-logo {
+    position: relative;
+    width: 500px;
+    margin-bottom: 2rem;
+    filter: brightness(0) invert(1);
+    animation: float 4s ease-in-out infinite;
+
+}
+
+@media (max-width: 1024px) {
+    .floating-logo {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-logo {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-logo {
+        width: 200px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero::before {
@@ -74,12 +124,6 @@ nav {
     bottom: 0;
     background: linear-gradient(to right, #000 30%, transparent);
     z-index: 1;
-}
-
-.hero-content {
-    max-width: 600px;
-    position: relative;
-    z-index: 2;
 }
 
 .hero-background {
@@ -111,38 +155,52 @@ nav {
 }
 
 .hero-buttons {
-    margin-top: 2rem;
     display: flex;
     gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
 }
 
-/* Buttons */
-.cta-button {
-    display: inline-block;
-    background: #2997ff;
-    color: #fff;
-    border: none;
+.btn {
     padding: 1rem 2rem;
     border-radius: 30px;
     font-size: 1.1rem;
-    cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
 }
 
-.cta-button.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.btn-primary {
+    background: #2997ff;
+    color: white;
 }
 
-.cta-button:hover {
+.btn-primary:hover {
     background: #0077ed;
-    transform: translateY(-2px);
+    transform: scale(1.05);
 }
 
-.cta-button.secondary:hover {
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
     background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
 }
 
 /* Product Sections */
@@ -157,6 +215,36 @@ nav {
     display: flex;
     align-items: center;
     gap: 4rem;
+    background: rgba(50, 50, 50, 0.2);
+    border-radius: 25px;
+    padding: 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product-container:hover {
+    transform: translateY(-5px);
+    background: rgba(50, 50, 50, 0.3);
+}
+
+.product-container:active {
+    transform: scale(0.98) translateY(-5px);
+}
+
+.product-container.clicked {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) translateY(-5px);
+    }
+    50% {
+        transform: scale(1.02) translateY(-5px);
+    }
+    100% {
+        transform: scale(1) translateY(-5px);
+    }
 }
 
 .reverse .product-container {
@@ -165,6 +253,13 @@ nav {
 
 .product-info {
     flex: 1;
+}
+
+.product-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-info h2 {
@@ -199,34 +294,32 @@ nav {
     font-size: 1.2rem;
 }
 
-.product-image {
-    flex: 1;
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    background: #111;
-}
-
 .product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
     transition: transform 0.3s ease;
 }
 
-.product-image:hover img {
-    transform: scale(1.05);
+.product-section#watch .product-image img {
+    max-width: 70%;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .product-section#watch .product-image img {
+        max-width: 50%;
+    }
 }
 
 /* Featured Products */
 .featured-products {
     padding: 6rem 2rem;
+    text-align: center;
     background: #000;
 }
 
 .featured-products h2 {
-    text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
 }
@@ -235,28 +328,64 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .product-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(50, 50, 50, 0.2) !important;
     border-radius: 20px;
     padding: 2rem;
-    transition: transform 0.3s ease;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    background: rgba(50, 50, 50, 0.3) !important;
 }
 
 .product-card img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
+    height: auto;
+    object-fit: contain;
     margin-bottom: 1.5rem;
+}
+
+.product-card[data-product="watch"] img {
+    max-width: 180px;
+}
+
+.product-card[data-product="iphone"] img {
+    max-width: 220px;
+}
+
+.product-card[data-product="macbook"] img {
+    max-width: 280px;
+}
+
+.product-card[data-product="ipad"] img {
+    max-width: 250px;
+}
+
+.product-card[data-product="airpods"] img {
+    max-width: 230px;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.product-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
 }
 
 /* Innovation Section */
@@ -297,14 +426,22 @@ nav {
 }
 
 .innovation-item i {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: #2997ff;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+}
+
+.innovation-item:hover i {
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 .innovation-item h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .innovation-item p {
@@ -313,35 +450,64 @@ nav {
 
 /* Seção de Contato */
 .contact-section {
-    padding: 6rem 2rem;
-    background: #111;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: #000;
 }
 
-.contact-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.contact-section p {
+    color: #999;
+    margin-bottom: 2rem;
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .contact-form input,
 .contact-form textarea {
+    width: 100%;
     padding: 1rem;
-    border: none;
+    margin-bottom: 1rem;
     border-radius: 8px;
+    border: none;
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: white;
 }
 
 .contact-form textarea {
-    height: 150px;
-    resize: none;
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 30px;
+    background: #2997ff;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #0077ed;
+    transform: scale(1.02);
 }
 
 /* Footer */
