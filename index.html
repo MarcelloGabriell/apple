@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apple Products - Experiência Premium</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <nav>
@@ -14,7 +15,7 @@
                 <i class="fab fa-apple"></i>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Início</a></li>
                 <li><a href="#iphone">iPhone</a></li>
                 <li><a href="#macbook">MacBook</a></li>
                 <li><a href="#ipad">iPad</a></li>
@@ -30,11 +31,12 @@
             <img src="https://www.apple.com/v/iphone-15-pro/c/images/overview/design/titanium_endframe__bwsgtdkp0l6e_large.jpg" alt="iPhone 15 Pro Background">
         </div>
         <div class="hero-content">
+            <img src="img/logo.png" alt="Apple Logo" class="floating-logo">
             <h1>Descubra o Extraordinário</h1>
             <p>Inovação que inspira. Design que impressiona.</p>
             <div class="hero-buttons">
-                <button class="cta-button">Explorar Produtos</button>
-                <button class="cta-button secondary">Saiba Mais</button>
+                <a href="#featured-products" class="btn btn-primary">Explorar Produtos</a>
+                <a href="#iphone" class="btn btn-secondary">Saiba Mais</a>
             </div>
         </div>
     </section>
@@ -42,18 +44,18 @@
     <section id="featured-products" class="featured-products">
         <h2>Produtos em Destaque</h2>
         <div class="product-grid">
-            <div class="product-card">
-                <img src="https://www.apple.com/v/iphone-15-pro/c/images/overview/design/titanium_endframe__bwsgtdkp0l6e_large.jpg" alt="iPhone 15 Pro">
+            <div class="product-card" data-product="iphone">
+                <img src="img/iphone.png" alt="iPhone 15 Pro">
                 <h3>iPhone 15 Pro</h3>
                 <p>Titânio. Forte. Leve. Pro.</p>
             </div>
-            <div class="product-card">
-                <img src="https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro__cww8m2vqasyu_large.jpg" alt="MacBook Pro">
+            <div class="product-card" data-product="macbook">
+                <img src="img/macbook.png" alt="MacBook Pro">
                 <h3>MacBook Pro</h3>
                 <p>Poder impressionante.</p>
             </div>
-            <div class="product-card">
-                <img src="https://www.apple.com/v/apple-watch-ultra-2/b/images/overview/hero/hero_ultra2__x69ag788pg2e_large.jpg" alt="Apple Watch Ultra">
+            <div class="product-card" data-product="watch">
+                <img src="img/watch.png" alt="Apple Watch Ultra">
                 <h3>Apple Watch Ultra</h3>
                 <p>Aventura sem limites.</p>
             </div>
@@ -72,10 +74,9 @@
                     <li><i class="fas fa-battery-full"></i> Bateria para todo o dia</li>
                     <li><i class="fas fa-wifi"></i> 5G ultrarrápido</li>
                 </ul>
-                <button class="cta-button">Saiba mais</button>
             </div>
             <div class="product-image">
-                <img src="https://www.apple.com/v/iphone-15-pro/c/images/overview/design/titanium_endframe__bwsgtdkp0l6e_large.jpg" alt="iPhone 15 Pro">
+                <img src="img/iphone.png" alt="iPhone 15 Pro">
             </div>
         </div>
     </section>
@@ -92,10 +93,9 @@
                     <li><i class="fas fa-memory"></i> Até 96GB de memória unificada</li>
                     <li><i class="fas fa-hdd"></i> SSD ultrarrápido</li>
                 </ul>
-                <button class="cta-button">Explorar</button>
             </div>
             <div class="product-image">
-                <img src="https://www.apple.com/v/macbook-pro-14-and-16/e/images/overview/hero/hero_intro__cww8m2vqasyu_large.jpg" alt="MacBook Pro">
+                <img src="img/macbook.png" alt="MacBook Pro">
             </div>
         </div>
     </section>
@@ -112,10 +112,9 @@
                     <li><i class="fas fa-camera"></i> Câmera Ultra Wide</li>
                     <li><i class="fas fa-wifi"></i> Wi-Fi 6E</li>
                 </ul>
-                <button class="cta-button">Descobrir</button>
             </div>
             <div class="product-image">
-                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-13-select-cell-spacegray-202210?wid=800&hei=800&fmt=jpeg&qlt=90&.v=1664411207213" alt="iPad Pro">
+                <img src="img/Ipad.png" alt="iPad Pro">
             </div>
         </div>
     </section>
@@ -132,10 +131,9 @@
                     <li><i class="fas fa-battery-full"></i> Até 36h de bateria</li>
                     <li><i class="fas fa-water"></i> Resistente a 100m</li>
                 </ul>
-                <button class="cta-button">Explorar</button>
             </div>
             <div class="product-image">
-                <img src="https://www.apple.com/v/apple-watch-ultra-2/b/images/overview/hero/hero_ultra2__x69ag788pg2e_large.jpg" alt="Apple Watch Ultra">
+                <img src="img/watch.png" alt="Apple Watch Ultra">
             </div>
         </div>
     </section>
@@ -152,10 +150,9 @@
                     <li><i class="fas fa-water"></i> Resistente ao suor</li>
                     <li><i class="fas fa-magic"></i> Conexão mágica</li>
                 </ul>
-                <button class="cta-button">Conhecer</button>
             </div>
             <div class="product-image">
-                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83?wid=800&hei=800&fmt=jpeg&qlt=90&.v=1660803972361" alt="AirPods Pro">
+                <img src="img/airpods.png" alt="AirPods Pro">
             </div>
         </div>
     </section>
@@ -165,7 +162,7 @@
             <h2>Inovação em Cada Detalhe</h2>
             <div class="innovation-grid">
                 <div class="innovation-item">
-                    <i class="fas fa-microchip"></i>
+                    <i class="fas fa-atom"></i>
                     <h3>Tecnologia Avançada</h3>
                     <p>Chips mais poderosos do mercado</p>
                 </div>
@@ -180,7 +177,7 @@
                     <p>Seus dados protegidos</p>
                 </div>
                 <div class="innovation-item">
-                    <i class="fas fa-paint-brush"></i>
+                    <i class="fas fa-gem"></i>
                     <h3>Design Premium</h3>
                     <p>Materiais de alta qualidade</p>
                 </div>
@@ -189,16 +186,14 @@
     </section>
 
     <section id="contato" class="contact-section">
-        <div class="contact-container">
-            <h2>Entre em Contato</h2>
-            <p>Descubra mais sobre nossos produtos</p>
-            <form class="contact-form">
-                <input type="text" placeholder="Nome" required>
-                <input type="email" placeholder="E-mail" required>
-                <textarea placeholder="Mensagem" required></textarea>
-                <button type="submit" class="cta-button">Enviar</button>
-            </form>
-        </div>
+        <h2>Entre em Contato</h2>
+        <p>Descubra mais sobre nossos produtos</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="E-mail" required>
+            <textarea placeholder="Mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
     </section>
 
     <footer>
@@ -207,14 +202,25 @@
                 <i class="fab fa-apple"></i>
             </div>
             <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/marcello__gabriell/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/marcello.gabriell.7/"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            <p>&copy; 2025 Apple. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Apple. Marcello Gabriell.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Adiciona efeito de clique aos containers de produto
+        document.querySelectorAll('.product-container').forEach(container => {
+            container.addEventListener('click', function() {
+                this.classList.add('clicked');
+                // Remove a classe após a animação terminar
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 500);
+            });
+        });
+    </script>
 </body>
 </html>
